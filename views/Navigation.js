@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 // import {} from "react-native";
 
-import { TabNavigator } from "react-navigation";
+import { TabNavigator, StackNavigator } from "react-navigation";
 
 import BookScreen from "./Book";
 import MovieScreen from "./Movie";
 import MineScreen from "./Mine";
-export default TabNavigator(
+const MainScreen = TabNavigator(
   {
     书籍: {
       screen: BookScreen
@@ -21,7 +21,7 @@ export default TabNavigator(
   {
     tabBarOptions: {
       activeTintColor: "#fc6767",
-      inactiveTintColor:'#333',
+      inactiveTintColor: "#333",
       style: {
         backgroundColor: "#e5e5ef"
       }
@@ -30,3 +30,13 @@ export default TabNavigator(
     tabBarPosition: "bottom"
   }
 );
+
+import BookDetailScreen from "./Book/BookDetail";
+export default StackNavigator({
+  Home: {
+    screen: MainScreen
+  },
+  BookDetail: {
+    screen: BookDetailScreen
+  }
+});

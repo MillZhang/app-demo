@@ -7,7 +7,11 @@ const Util = {
    * @param {失败回调} failCallback
    */
   fetchData(url, successCallback, failCallback) {
-    fetch(BASEURL+url)
+    fetch(BASEURL + url, {
+      headers: {
+        "Content-Type": "x-www-form-urlencoded;charset=utf-8"
+      }
+    })
       .then(response => response.json())
       .then(data => successCallback(data))
       .catch(error => failCallback(data));
