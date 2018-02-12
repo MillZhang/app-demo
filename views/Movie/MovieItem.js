@@ -20,7 +20,7 @@ export default class MovieItem extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    margin:20
+    margin: 20
   },
   image: {
     width: 100,
@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
   text: {
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 15
+    marginTop: 15,
+    width: 120
   }
 });
