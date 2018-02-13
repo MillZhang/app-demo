@@ -90,14 +90,15 @@ const styles = StyleSheet.create({
   },
   searchBar: {
     flexDirection: 'row',
-    padding: 12,
+    padding: 8,
     backgroundColor: '#fff'
   },
   input: {
     flex: 1,
     borderWidth: 1,
     borderColor: '#f59826',
-    marginRight: 20
+    marginRight: 20,
+    height:40
   },
   searchBtn: {
     width: 100,

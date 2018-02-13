@@ -25,25 +25,27 @@ export default class MovieList extends React.Component {
         numColumns={3}
         data={this.state.list}
         keyExtractor={this._keyExtractor}
-        renderItem={this._renderItem}/>)
+        renderItem={this._renderItem} />)
       : (<ActivityIndicator
         color="#ea6f5a"
         size="large"
         style={{
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center"
-      }}/>);
+          flex: 1,
+          alignItems: "center",
+          justifyContent: "center"
+        }} />);
   }
 
   _keyExtractor(item, index) {
     return index.toString();
   }
 
-  _renderItem({item}) {
+  _renderItem({ item }) {
     return (
       <TouchableOpacity>
-        <MovieItem data={item}/>
+        <View class={styles.container}>
+          <MovieItem data={item} />
+        </View>
       </TouchableOpacity>
     );
   }
@@ -54,11 +56,15 @@ export default class MovieList extends React.Component {
 
   fetchData() {
     Service
-      .getMovieList({q: 'movie', size: 1})
+      .getMovieList({ q: 'movie', size: 1 })
       .then(result => {
-        this.setState({list: result.subjects, loaded: true});
+        this.setState({ list: result.subjects, loaded: true });
       });
   }
 }
 
-const styles = StyleSheet.create({container: {}});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  }
+});
